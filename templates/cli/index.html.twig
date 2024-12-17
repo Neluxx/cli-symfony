@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CLI Controller{% endblock %}
+
+{% block body %}
+    <div id="cli">
+        <div id="output"></div>
+        <div id="input-line">
+            <span>$</span>&nbsp;<input id="input" type="text" autofocus />
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        input.addEventListener('keydown', async (event) => {
+            if (event.key === 'Enter') {
+                const command = input.value.trim();
+                if (command) {
+                    output.innerHTML += `<div>$ ${command}</div>`;
+                    input.value = '';
+
+                    const response = await fetch('/execute', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ command })
+                    });
+                    const data = await response.json();
+                    output.innerHTML += `<div>${data.output.replace(/\n/g, '<br>')}</div>`;
+                    output.scrollTop = output.scrollHeight;
+                }
+            }
+        });
+    </script>
+{% endblock %}
