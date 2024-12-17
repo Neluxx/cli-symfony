@@ -13,6 +13,7 @@
     <option name="showSniffs" value="true" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpAnalysisConfiguration" call_tree_analysis_depth="0" />
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
