@@ -135,6 +135,13 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/.ddev/.dbimageBuild" />
+      <excludeFolder url="file://$MODULE_DIR$/.ddev/.homeadditions" />
+      <excludeFolder url="file://$MODULE_DIR$/.ddev/.webimageBuild" />
+      <excludeFolder url="file://$MODULE_DIR$/.ddev/db_snapshots" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/var" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
