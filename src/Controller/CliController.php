@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -20,17 +19,23 @@ class CliController extends AbstractController
     }
 
     #[Route('/execute', name: 'cli_execute', methods: ['POST'])]
-    public function execute(Request $request): JsonResponse
+    public function execute(Request $request): Response
     {
-        $command = $request->request->get('command');
+        $input = $request->request->get('command', '');
 
-        $output = match (strtolower($command)) {
-            'help' => "Available commands:\n- help\n- hello\n- date",
-            'hello' => "Hello, User!",
-            'date' => "Current date and time: " . (new \DateTime())->format('Y-m-d H:i:s'),
-            default => "Command not recognized. Type 'help' for a list of available commands.",
-        };
+        $commands = [
+            'help' => "Available commands: help, hello, date, time\n",
+            'hello' => "Hello, User!\n",
+            'date' => "Current date and time: " . (new \DateTime())->format('Y-m-d H:i:s') . "\n",
+            'time' => "Current time is: " . (new \DateTime())->format('H:i:s') . "\n",
+        ];
 
-        return new JsonResponse(['output' => $output]);
+        if (array_key_exists($input, $commands)) {
+            $output = $commands[$input];
+        } else {
+            $output = "Command not found: $input \n";
+        }
+
+        return new Response($output);
     }
 }
