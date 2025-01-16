@@ -1,25 +1,17 @@
 /* Color codes used in the Ubuntu terminal */
 :root {
     /* Default Text and Background */
-    --white: #D0CFCC;       /* Default text color */
+    --white: #EEEEEC;       /* Default text color */
     --purple: #300A24;      /* Default terminal background */
 
     /* Command Line Elements */
-    --green: #26A269;       /* Username and hostname */
-    --blue: #12488B;        /* Directory paths */
-    --cyan: #2AA1B3;        /* Symbolic links */
+    --green: #8AE234;       /* Username and hostname */
+    --blue: #729FCF;        /* Directory paths */
+    --cyan: #34E2E2;        /* Symbolic links */
 
     /* System Messages */
-    --red: #C01C28;         /* Error messages */
-    --yellow: #A2734C;      /* Warnings */
-
-    /* Bright variants when text is selected */
-    --light-white: #FFFFFF; /* Selected text */
-    --light-green: #33D17A; /* Selected username and hostname */
-    --light-blue: #2A7BDE;  /* Selected directories */
-    --light-cyan: #33C7DE;  /* Selected symbolic links */
-    --light-red: #F66151;   /* Selected errors */
-    --light-yellow: #E9AD0C;   /* Selected warnings */
+    --red: #EF2929;         /* Error messages */
+    --yellow: #FCE94F;      /* Warnings */
 }
 
  * {
@@ -50,7 +42,7 @@ body {
 }
 
 .prompt {
-    color: var(--light-green);
+    color: var(--green);
 }
 
 .directory {
@@ -82,8 +74,4 @@ body {
 .input-line input.command::selection {
     background-color: var(--white);
     color: var(--purple);
-}
-
-.input-line input.command:focus {
-    animation: blink 1s step-end infinite;
 }
