@@ -24,18 +24,20 @@ class CliController extends AbstractController
         $input = $request->request->get('command', '');
 
         $commands = [
-            'help' => "Available commands: help, hello, date, time\n",
-            'hello' => "Hello, User!\n",
-            'date' => "Current date and time: " . (new \DateTime())->format('Y-m-d H:i:s') . "\n",
-            'time' => "Current time is: " . (new \DateTime())->format('H:i:s') . "\n",
+            'help' => 'commands/help.html.twig',
+            'hello' => 'commands/hello.html.twig',
+            'date' => 'commands/date.html.twig',
+            'time' => 'commands/time.html.twig',
         ];
 
         if (array_key_exists($input, $commands)) {
-            $output = $commands[$input];
-        } else {
-            $output = "Command not found: $input \n";
+            return $this->render($commands[$input], [
+                'current_datetime' => new \DateTime(),
+            ]);
         }
 
-        return new Response($output);
+        return $this->render('commands/not_found.html.twig', [
+            'command' => $input,
+        ]);
     }
 }
