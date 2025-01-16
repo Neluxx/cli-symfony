@@ -30,14 +30,19 @@ class CliController extends AbstractController
             'time' => 'commands/time.html.twig',
         ];
 
+        $template = 'commands/not_found.html.twig';
+        $context = ['command' => $input];
+
         if (array_key_exists($input, $commands)) {
-            return $this->render($commands[$input], [
+            $template = $commands[$input];
+            $context = [
                 'current_datetime' => new \DateTime(),
-            ]);
+            ];
         }
 
-        return $this->render('commands/not_found.html.twig', [
-            'command' => $input,
+        return $this->render('cli/command_output.html.twig', [
+            'input' => $input,
+            'output' => $this->renderView($template, $context),
         ]);
     }
 }
