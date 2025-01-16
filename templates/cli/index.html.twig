@@ -7,8 +7,8 @@
         <div id="output" class="output"></div>
         <form hx-post="/execute" hx-target="#output" hx-swap="beforeend" hx-on::after-request="this.reset()">
             <div class="input-line">
-                <span class="prompt">$</span>
-                <input type="text" name="command" autocomplete="off" autofocus>
+                <span class="prompt">user@ubuntu</span>:<span class="directory">~</span>$&nbsp;
+                <input class="command" type="text" name="command" autocomplete="off" autofocus>
             </div>
         </form>
     </div>

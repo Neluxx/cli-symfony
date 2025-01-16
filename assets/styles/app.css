@@ -1,3 +1,89 @@
+/* Color codes used in the Ubuntu terminal */
+:root {
+    /* Default Text and Background */
+    --white: #D0CFCC;       /* Default text color */
+    --purple: #300A24;      /* Default terminal background */
+
+    /* Command Line Elements */
+    --green: #26A269;       /* Username and hostname */
+    --blue: #12488B;        /* Directory paths */
+    --cyan: #2AA1B3;        /* Symbolic links */
+
+    /* System Messages */
+    --red: #C01C28;         /* Error messages */
+    --yellow: #A2734C;      /* Warnings */
+
+    /* Bright variants when text is selected */
+    --light-white: #FFFFFF; /* Selected text */
+    --light-green: #33D17A; /* Selected username and hostname */
+    --light-blue: #2A7BDE;  /* Selected directories */
+    --light-cyan: #33C7DE;  /* Selected symbolic links */
+    --light-red: #F66151;   /* Selected errors */
+    --light-yellow: #E9AD0C;   /* Selected warnings */
+}
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 body {
-    background-color: skyblue;
+    background-color: var(--purple);
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.terminal {
+    width: 100%;
+    height: 100%;
+    background-color: var(--purple);
+    padding: 20px;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.prompt {
+    color: var(--light-green);
+}
+
+.directory {
+    color: var(--blue);
+}
+
+.command {
+    color: var(--white);
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.input-line input.command {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 16px;
+    flex: 1;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    caret-color: var(--white);
+}
+
+.input-line input.command::selection {
+    background-color: var(--white);
+    color: var(--purple);
+}
+
+.input-line input.command:focus {
+    animation: blink 1s step-end infinite;
 }
