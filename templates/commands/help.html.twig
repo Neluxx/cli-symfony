@@ -1,1 +1,6 @@
-<p>Available commands: help, hello, date, time.</p>
+<p>Available commands:</p>
+<ul>
+    {% for command in commands %}
+        <li>{{ command }}</li>
+    {% endfor %}
+</ul>

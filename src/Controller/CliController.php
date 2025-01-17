@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Command\CommandRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,13 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 class CliController extends AbstractController
 {
+    private CommandRegistry $commandRegistry;
+
+    public function __construct()
+    {
+        $this->commandRegistry = new CommandRegistry();
+    }
+
     #[Route('/', name: 'app_cli')]
     public function index(): Response
     {
@@ -22,22 +30,25 @@ class CliController extends AbstractController
     public function execute(Request $request): Response
     {
         $input = $request->request->get('command', '');
+        $parts = explode(' ', $input);
+        $commandName = $parts[0];
+        $params = [];
 
-        $commands = [
-            'help' => 'commands/help.html.twig',
-            'hello' => 'commands/hello.html.twig',
-            'date' => 'commands/date.html.twig',
-            'time' => 'commands/time.html.twig',
-        ];
+        foreach (array_slice($parts, 1) as $part) {
+            if (strpos($part, '=') !== false) {
+                [$key, $value] = explode('=', $part, 2);
+                $params[$key] = $value;
+            }
+        }
 
-        $template = 'commands/not_found.html.twig';
-        $context = ['command' => $input];
+        $command = $this->commandRegistry->getCommand($commandName);
 
-        if (array_key_exists($input, $commands)) {
-            $template = $commands[$input];
-            $context = [
-                'current_datetime' => new \DateTime(),
-            ];
+        if ($command) {
+            $context = $command->execute($params);
+            $template = $command->getTemplate();
+        } else {
+            $context = ['command' => $input];
+            $template = 'commands/not_found.html.twig';
         }
 
         return $this->render('cli/command_output.html.twig', [
