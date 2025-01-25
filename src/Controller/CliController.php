@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
- * CLI Controller
+ * CLI Controller.
  */
 class CliController extends AbstractController
 {
@@ -35,7 +35,7 @@ class CliController extends AbstractController
         $params = [];
 
         foreach (array_slice($parts, 1) as $part) {
-            if (strpos($part, '=') !== false) {
+            if (false !== strpos($part, '=')) {
                 [$key, $value] = explode('=', $part, 2);
                 $params[$key] = $value;
             }

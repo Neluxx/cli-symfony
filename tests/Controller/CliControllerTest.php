@@ -25,7 +25,7 @@ class CliControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/execute', [
-            'command' => 'nonexistentcommand'
+            'command' => 'nonexistentcommand',
         ]);
 
         self::assertResponseIsSuccessful();
@@ -37,7 +37,7 @@ class CliControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/execute', [
-            'command' => 'hello'
+            'command' => 'hello',
         ]);
 
         self::assertResponseIsSuccessful();
