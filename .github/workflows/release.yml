@@ -33,7 +33,7 @@ jobs:
           tools: composer
 
       - name: Install Production Dependencies
-        run: composer install --no-dev --optimize-autoloader
+        run: APP_ENV=prod composer install --no-dev --optimize-autoloader
 
       - name: Package Release Artifact
         run: zip -r ${{ env.TAG }}.zip . ${{ env.EXCLUDE_PATHS }}
