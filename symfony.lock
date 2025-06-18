@@ -23,7 +23,7 @@
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
-        "version": "3.3",
+        "version": "3.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -36,7 +36,7 @@
         ]
     },
     "friendsofphp/php-cs-fixer": {
-        "version": "3.68",
+        "version": "3.75",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -113,7 +113,7 @@
         ]
     },
     "symfony/flex": {
-        "version": "2.4",
+        "version": "2.7",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -169,7 +169,7 @@
         ]
     },
     "symfony/maker-bundle": {
-        "version": "1.61",
+        "version": "1.63",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -214,7 +214,7 @@
         ]
     },
     "symfony/phpunit-bridge": {
-        "version": "7.2",
+        "version": "7.3",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -296,7 +296,7 @@
         ]
     },
     "symfony/ux-turbo": {
-        "version": "2.22",
+        "version": "2.26",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -330,6 +330,6 @@
         ]
     },
     "twig/extra-bundle": {
-        "version": "v3.17.0"
+        "version": "v3.21.0"
     }
 }
