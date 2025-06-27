@@ -9,9 +9,9 @@ interface CommandInterface
     /**
      * Executes the command and returns the context (data) for the template.
      *
-     * @param array $params Parameters for the command
+     * @param array<string> $params Parameters for the command
      *
-     * @return array Context data for template rendering
+     * @return array<string, mixed> Context data for template rendering
      */
     public function execute(array $params = []): array;
 

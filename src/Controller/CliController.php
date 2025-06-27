@@ -31,7 +31,7 @@ class CliController extends AbstractController
     #[Route('/execute', name: 'cli_execute', methods: ['POST'])]
     public function execute(Request $request): Response
     {
-        $input = $request->request->get('command', '');
+        $input = (string) $request->request->get('command', '');
         $parts = explode(' ', $input);
         $commandName = $parts[0];
         $params = [];

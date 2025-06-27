@@ -6,6 +6,7 @@ namespace App\Command;
 
 class CommandRegistry
 {
+    /** @var array<CommandInterface> */
     private array $commands = [];
 
     public function __construct()
