@@ -60,17 +60,18 @@
         ]
     },
     "phpunit/phpunit": {
-        "version": "9.6",
+        "version": "12.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "9.6",
-            "ref": "6a9341aa97d441627f8bd424ae85dc04c944f8b4"
+            "version": "11.1",
+            "ref": "c6658a60fc9d594805370eacdf542c3d6b5c0869"
         },
         "files": [
             ".env.test",
-            "phpunit.xml.dist",
-            "tests/bootstrap.php"
+            "phpunit.dist.xml",
+            "tests/bootstrap.php",
+            "bin/phpunit"
         ]
     },
     "symfony/asset-mapper": {
@@ -214,21 +215,6 @@
             "config/packages/notifier.yaml"
         ]
     },
-    "symfony/phpunit-bridge": {
-        "version": "7.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "6.3",
-            "ref": "a411a0480041243d97382cac7984f7dce7813c08"
-        },
-        "files": [
-            ".env.test",
-            "bin/phpunit",
-            "phpunit.xml.dist",
-            "tests/bootstrap.php"
-        ]
-    },
     "symfony/property-info": {
         "version": "7.3",
         "recipe": {
@@ -268,7 +254,7 @@
         ]
     },
     "symfony/stimulus-bundle": {
-        "version": "2.26",
+        "version": "2.27",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -309,7 +295,7 @@
         ]
     },
     "symfony/ux-turbo": {
-        "version": "2.26",
+        "version": "2.27",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
