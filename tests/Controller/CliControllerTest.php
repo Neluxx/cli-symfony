@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Controller;
 
 use App\Kernel;
@@ -7,11 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class CliControllerTest extends WebTestCase
 {
-    protected static function getKernelClass(): string
-    {
-        return Kernel::class;
-    }
-
     public function testIndexPageLoadsSuccessfully(): void
     {
         $client = static::createClient();
@@ -43,5 +40,10 @@ class CliControllerTest extends WebTestCase
         self::assertResponseIsSuccessful();
         self::assertSelectorExists('div.command-output');
         self::assertSelectorTextContains('div.command-output', 'Hello, World!');
+    }
+
+    protected static function getKernelClass(): string
+    {
+        return Kernel::class;
     }
 }

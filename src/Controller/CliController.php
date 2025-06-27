@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Command\CommandRegistry;
@@ -34,8 +36,8 @@ class CliController extends AbstractController
         $commandName = $parts[0];
         $params = [];
 
-        foreach (array_slice($parts, 1) as $part) {
-            if (false !== strpos($part, '=')) {
+        foreach (\array_slice($parts, 1) as $part) {
+            if (str_contains($part, '=')) {
                 [$key, $value] = explode('=', $part, 2);
                 $params[$key] = $value;
             }
