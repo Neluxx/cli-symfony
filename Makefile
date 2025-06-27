@@ -60,7 +60,7 @@ update-dev:
 	$(MAKE) git-update
 	$(MAKE) selfupdate
 	$(MAKE) install
-	$(MAKE) migrate
+	#$(MAKE) migrate
 	$(MAKE) test
 
 .PHONY: full-test
